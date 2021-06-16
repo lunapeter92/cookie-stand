@@ -1,8 +1,5 @@
 body{
-  background-color: lavender;
-  background-blend-mode: lighten;
 }
-
 header{
   display: flex;  
   background-color: gray;
@@ -19,7 +16,7 @@ h1{
   margin: auto;
   border: 2px solid black;
   padding-bottom: 2px;
-  right: 4em;
+  right: 20em;
 }
 
 nav a{
@@ -35,10 +32,26 @@ nav a:hover{
   color:blue ;
 }
 
-footer{
-  display: flex;  
-  background-color: gray;
-  color: white;
-  justify-content: space-between
+h2{
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  text-align: center;
+  font-weight: bold;
+}
+table * {
+  border: 1px solid black;
+  padding: 2px;
+  text-align: center;
+}
 
+table{
+  display: block;
+  /* justify-content: center;
+  /* table-layout: fixed; */
+  /* width: 100px; * */
+}
+
+div{
+  margin: 15em;
 }
