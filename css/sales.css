@@ -1,4 +1,7 @@
 body{
+    background-color: lavender;
+    background-blend-mode: lighten;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 header{
   display: flex;  
@@ -17,6 +20,7 @@ h1{
   border: 2px solid black;
   padding-bottom: 2px;
   right: 20em;
+  margin-bottom: 2em;;
 }
 
 nav a{
@@ -32,21 +36,57 @@ nav a:hover{
   color:blue ;
 }
 
-h2{
+h2:nth-child(1){
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 3em;;
+}
+
+h2:nth-child(2){
   display: flex;
   justify-content: center;
   font-size: larger;
   text-align: center;
   font-weight: bold;
 }
+
+form{
+  border: 2px solid black;
+  width: 15%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  align-content: space-between;
+  padding: 10px;
+  padding-bottom: 5px;;
+}
+
+legend{
+  text-align: center;
+  margin-bottom: 1px;
+}
+
+label{
+  margin-top: 1em;
+  margin-bottom: 2px;
+}
+
 table * {
   border: 1px solid black;
   padding: 2px;
   text-align: center;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 table{
+  margin-top: 1em;;
   display: block;
+  position: relative;
+  bottom: 10em;
   /* justify-content: center;
   /* table-layout: fixed; */
   /* width: 100px; * */
@@ -54,4 +94,24 @@ table{
 
 div{
   margin: 15em;
+}
+
+footer{
+  display: flex;  
+  background-color: gray;
+  color: white;
+  align-content: center;
+  justify-content: space-evenly;
+}
+
+footer p{
+  position: relative;
+  right: 33em;
+  margin-top: 5px;
+}
+
+footer img{
+  position: relative;
+  right: 17em;
+  
 }
