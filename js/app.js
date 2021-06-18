@@ -2,6 +2,12 @@
 
 //Parent element where table will go.
 const divEl = document.getElementById('cookiesales');
+const storeForm = document.getElementById('storeForm');
+const articleEl = document.createElement('article');
+divEl.appendChild(articleEl);
+const tableEl = document.createElement('table');
+articleEl.appendChild(tableEl)
+
 
 //Array with hours that store is open
 const storeHours = ['6:00 am', '7:00 am', '8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm']
@@ -47,13 +53,13 @@ Store.prototype.getHourlyCookieSales = function(){
 
 
 //Renders store DOM elements
-Store.prototype.createStoreElements = function(){
+Store.prototype.renderStoreElements = function(){
   let total = 0;
   let grandTotal = 0;
-  const articleEl = document.createElement('article');
-  divEl.appendChild(articleEl);
-  const tableEl = document.createElement('table');
-  articleEl.appendChild(tableEl)
+  // const articleEl = document.createElement('article');
+  // divEl.appendChild(articleEl);
+  // const tableEl = document.createElement('table');
+  // articleEl.appendChild(tableEl)
   const headerEl = document.createElement('thead');
   tableEl.appendChild(headerEl);
   const headerRow = document.createElement('tr');
@@ -102,15 +108,15 @@ Store.prototype.createStoreElements = function(){
   // tableEl.appendChild(row6);
 }
 
-// Store.prototype.createFooter = function(){
+// function createFooter(){
 //   const tfootEl = document.createElement('tfoot')
 //   const footerRow = document.createElement('tr');
-//   this.tableEl.appendChild(tfootEl);
+//   tableEl.appendChild(tfootEl);
 //   tfootEl.appendChild(footerRow);
 
 //   for(let i = 0; i < storeHours.length; i++){
-//     for(let j = 0; i < storeArray.length; j++){
-//       let currentStoreHour = storeArray[j].storeHours[i];
+//     for(let j = 0; j < Store.prototype.storeArray.length; j++){
+//       let currentStoreHour = Store.prototype.storeArray[j].storeHours[i];
 //       hourlyTotal+=currentStoreHour;
 //     }
 //   }
@@ -144,16 +150,37 @@ function renderAllStores(){
     let currentStore = Store.prototype.storeArray[i];
     currentStore.getCustomerCount(currentStore.minCust, currentStore.maxCust);
     currentStore.getHourlyCookieSales();
-    currentStore.createStoreElements();
+    currentStore.renderStoreElements();
     // currentStore.createFooter();
   }
 }
 
-function createFooter(){
-  
 
+
+//event listeners
+storeForm.addEventListener('submit', submitForm);
+
+//Event Functions
+//Function to submit store form
+function submitForm(event){
+  event.preventDefault();
+  //create variables to store form data in
+  console.log(event.target)
+  let name = event.target.name.value;
+  let minCust = parseInt(event.target.minCust.value);
+  let maxCust = parseInt(event.target.maxCust.value);
+  let avgCookiesSold = parseInt(event.target.avgCookiesSold.value);
+  console.log(name, minCust, maxCust, avgCookiesSold);
+  const newStore = new Store(name, minCust, maxCust, avgCookiesSold);
+  Store.prototype.storeArray.push(newStore);
+  Store.prototype.renderStoreElements();
  
+  console.log(typeof minCust)
+  event.target.reset();
+
+
 }
+
 //declare stores
 const store1 = new Store('Seattle', 25, 55, 6);
 const store2 = new Store('Tokyo', 15, 23, 5);
@@ -162,7 +189,9 @@ const store4 = new Store('Paris', 23, 34, 7);
 const store5 = new Store('Lima', 3, 7, 11);
 console.log(store1);
 
+
 renderAllStores();
+// createFooter();
 
 
 

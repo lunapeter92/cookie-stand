@@ -16,6 +16,26 @@
   </header>
   <main>
     <h2>Store Sales</h2>
+    <section>
+      <form id="storeForm">
+        <fieldset>
+          <legend>Add Store</legend>
+          <label for="name">Store Name
+            <input type="text" name="name">
+          </label>
+          <label for="minCust">Minimum Customers
+            <input type="number" name="minCust">
+          </label>
+          <label for="maxCust"> Maximum Customers
+            <input type="number" name="maxCust">
+          </label>
+          <label for="avgCookiesSold"> Average Cookies Sold
+            <input type="number" name="avgCookiesSold" id="">
+          </label>
+        </fieldset>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
     <div id="cookiesales">
       <!-- article
             table
@@ -29,6 +49,14 @@
       -->
     </div>  
 </main>
+<footer>
+  <img src="./img/chinook.jpeg" alt="chinook">
+  <p>Pat's Salmon Cookies<br>
+     123-456-0789<br>
+     123 Salmon Ave.<br>
+     Seattle, WA 98411
+  </p>
+</footer>
   <script src="./js/app.js"></script>
 </body>
 </html>
