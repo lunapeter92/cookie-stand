@@ -12,6 +12,9 @@ articleEl.appendChild(tableEl)
 //Array with hours that store is open
 const storeHours = ['6:00 am', '7:00 am', '8:00 am', '9:00 am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm', '5:00 pm', '6:00 pm', '7:00 pm']
 
+//Array that holds new stores
+const newStoreArray = [];
+
 //Constructor Method with basic properties for each store
 function Store(name, minCust, maxCust, avgCookiesSold){
   this.name = name;
@@ -26,6 +29,7 @@ function Store(name, minCust, maxCust, avgCookiesSold){
 
 //Array that stores store data for each instance of store.
 Store.prototype.storeArray = [];
+Store.prototype.newStoreArray = [];
 
 //Array that stores hourly customer count
 // Store.prototype.hourlyCustomerCount = [];
@@ -172,13 +176,12 @@ function submitForm(event){
   let avgCookiesSold = parseInt(event.target.avgCookiesSold.value);
   console.log(name, minCust, maxCust, avgCookiesSold);
   const newStore = new Store(name, minCust, maxCust, avgCookiesSold);
-  Store.prototype.storeArray.push(newStore);
-  Store.prototype.renderStoreElements();
  
+  newStoreArray.push(newStore);
+  tableEl.innerHTML = '';
+  renderAllStores();
   console.log(typeof minCust)
   event.target.reset();
-
-
 }
 
 //declare stores
